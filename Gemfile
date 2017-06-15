@@ -6,26 +6,19 @@ git_source(:github) do |repo_name|
 end
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.0'
-# Use Puma as the app server
+gem 'rails', '~> 5.1.1'
 gem 'puma', '~> 3.7'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'active_model_serializers', '~> 0.10.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-gem 'pg'
+gem 'sqlite3'
+# gem 'pg'
 # gem 'pg_search'
-gem 'dotenv'
+# gem 'dotenv'
 
 gem 'faker', '>= 1.6.1', group: [:development, :test, :staging]
 
