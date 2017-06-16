@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    scope module: :v1, path: '/api/v1', defaults: {format: :json} do
+      resources :game, param: :game_id, only: [:show, :create] do
+        member do
+          post :update
+        end
+      end
+    end
 end

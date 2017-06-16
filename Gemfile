@@ -15,18 +15,18 @@ gem 'active_model_serializers', '~> 0.10.6'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-gem 'sqlite3'
-# gem 'pg'
+gem 'pg'
 # gem 'pg_search'
 # gem 'dotenv'
 
-gem 'faker', '>= 1.6.1', group: [:development, :test, :staging]
+gem 'faker', '>= 1.6.1', group: [:development, :test]
 
 group :development, :test do
   gem 'byebug', platforms: :mri
 end
 
 group :development do
+  gem 'activerecord-import'
   gem 'annotate'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
