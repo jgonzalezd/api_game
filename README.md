@@ -4,7 +4,7 @@ This API provides a backend for the Lenda Word Find test
 
 ## Installation
 
-This project uses RVM, although it is not required it helps to have a fresh start for the gems used in this project. If you are using RVM already, once you navigate into the project directory a new Gemset will be created and you would have to install Bundler in it.
+This project uses RVM, although it is not required it helps to have a fresh start for the gems used in this project. If you are using RVM already, once you navigate into the project directory a new Gemset will be created and you would have to install Bundler into it.
 
 ### Prerequisites
 You need to have installed:
