@@ -24,7 +24,7 @@ module BoilerplateRailsApi
     config.generators do |g|
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -33,5 +33,11 @@ module BoilerplateRailsApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '/*', :headers => :any, :methods => [:get, :post]
+      end
+    end
   end
 end
