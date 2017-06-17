@@ -24,12 +24,39 @@ shared_context 'a failed create' do
    end
  end
 
+ shared_context 'a bad request' do
+   it 'responds with a bad request http status' do
+     expect(response.status).to eq(400)
+     expect(response.body).to   be_empty
+   end
+ end
+
+ shared_context 'a not found request' do
+   it 'responds with a not found request http status' do
+     expect(response.status).to eq(404)
+     expect(response.body).to   be_empty
+   end
+ end
+
+ shared_context 'a not acceptable request' do
+   it 'responds with a not acceptable request http status' do
+     expect(response.status).to eq(406)
+     expect(response.body).to   be_empty
+   end
+ end
+
+ shared_context 'a conflict request' do
+   it 'responds with a conflict request http status' do
+     expect(response.status).to eq(409)
+     expect(response.body).to   be_empty
+   end
+ end
+
  shared_context 'has a game object payload' do |root|
    it 'responds with a game json object' do
-     json = JSON.parse(response.body)
-     expect(json['id']).to be_truthy
-     expect(json['board'].size).to be 5
-     expect(json['score']).to be_truthy
+     expect(json['id']).to          be_truthy
+     expect(json['board'].size).to  be 5
+     expect(json['score']).to       be_truthy
      expect(json['words'].class).to be Array
    end
  end

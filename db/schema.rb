@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615173658) do
+ActiveRecord::Schema.define(version: 20170616212555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170615173658) do
   create_table "game_valid_words", force: :cascade do |t|
     t.bigint "game_id"
     t.bigint "valid_word_id"
+    t.index ["game_id", "valid_word_id"], name: "index_game_valid_words_on_game_id_and_valid_word_id", unique: true
     t.index ["game_id"], name: "index_game_valid_words_on_game_id"
     t.index ["valid_word_id"], name: "index_game_valid_words_on_valid_word_id"
   end

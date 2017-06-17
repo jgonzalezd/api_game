@@ -84,7 +84,7 @@ RSpec.describe GameValidator do
         end
 
         it 'finds the word in the last row' do
-          game.valid_words << ValidWord.new(word: "OK")
+          game.valid_words << ValidWord.new(word: "OKU")
           expect(game).to be_valid
         end
 
@@ -116,7 +116,7 @@ RSpec.describe GameValidator do
         end
 
         it 'finds the word in the last row' do
-          game.valid_words << ValidWord.new(word: "OK")
+          game.valid_words << ValidWord.new(word: "MOK")
           expect(game).to be_valid
         end
 
@@ -371,5 +371,12 @@ RSpec.describe GameValidator do
         game.valid_words << ValidWord.new(word: "HUGE")
         expect(game).not_to be_valid
       end
+
+      it 'invalidates words of less than 3 chars' do
+        game.valid_words << ValidWord.new(word: "PO")
+        expect(game).not_to be_valid
+      end
   end
+
+
 end

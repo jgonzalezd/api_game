@@ -24,6 +24,7 @@ class GameValidator < ActiveModel::Validator
 
   def playable?(game, valid_word)
     word  = valid_word.word.downcase.split("")
+    return false if word.size < 3
     current_char = word.shift.to_sym
     board.each_with_index do |row, ridx|
       row.each_with_index do |el,  eidx|
@@ -36,9 +37,6 @@ class GameValidator < ActiveModel::Validator
   end
 
   private
-    def generate_board
-      self.board = Dice.shake.each_slice(5).to_a
-    end
 
     def track(*state)
       ridx, eidx, word = state
