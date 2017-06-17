@@ -26,10 +26,10 @@ class GameValidator < ActiveModel::Validator
     word  = valid_word.word.downcase.split("")
     return false if word.size < 3
     current_char = word.shift.to_sym
-    board.each_with_index do |row, ridx|
-      row.each_with_index do |el,  eidx|
+    board.each_with_index do |row,  row_index|
+      row.each_with_index do |el,  elem_index|
         next if  current_char != el
-        found = track(ridx, eidx, word.dup)
+        found = track(row_index, elem_index, word.dup)
         return found if found
       end#row
     end#board
@@ -39,43 +39,43 @@ class GameValidator < ActiveModel::Validator
   private
 
     def track(*state)
-      ridx, eidx, word = state
+      row_index, elem_index, word = state
       return true if word.empty?
 
       current_char = word.shift.to_sym
 
       # Left lookup
-      unless eidx == 0
-        left_char = board[ridx][eidx-1]
+      unless elem_index == 0
+        left_char = board[row_index][elem_index-1]
         if left_char == current_char
-          found = track(ridx, eidx-1, word.dup)
+          found = track(row_index, elem_index-1, word.dup)
           return found if found
         end
       end
 
       #above lookup
-      unless ridx == 0
-        above_char = board[ridx-1][eidx]
+      unless row_index == 0
+        above_char = board[row_index-1][elem_index]
         if above_char == current_char
-          found = track(ridx-1, eidx, word.dup)
+          found = track(row_index-1, elem_index, word.dup)
           return found if found
         end
       end
 
       #right lookup
-      unless eidx == (board.size - 1)
-        right_char = board[ridx][eidx+1]
+      unless elem_index == (board.size - 1)
+        right_char = board[row_index][elem_index+1]
         if right_char == current_char
-          found = track(ridx, eidx+1, word.dup)
+          found = track(row_index, elem_index+1, word.dup)
           return found if found
         end
       end
 
       # below lookup
-      unless ridx == (board.size - 1)
-        below_char = board[ridx+1][eidx]
+      unless row_index == (board.size - 1)
+        below_char = board[row_index+1][elem_index]
         if below_char == current_char
-          found = track(ridx+1, eidx, word.dup)
+          found = track(row_index+1, elem_index, word.dup)
           return found if found
         end
       end

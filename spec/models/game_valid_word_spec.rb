@@ -20,7 +20,7 @@ RSpec.describe GameValidWord, type: :model do
 
         it 'invalidates invalid game' do
           allow_any_instance_of(GameValidator)
-          .to receive(:found_errors) {|o| o.record.errors[:base] << "Not valid"}
+          .to receive(:found_errors) { |gv| gv.record.errors[:base] << "Invalid" }
           expect(subject).to_not be_valid
         end
       end
