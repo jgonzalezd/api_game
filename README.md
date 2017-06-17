@@ -46,3 +46,18 @@ The current available version is Version 1. To access endpoints in this namespac
 ### Retrieve a game `GET /game/{game_id}`
 
 * Example http://localhost:3000/api/v1/game/1
+
+-----
+
+#### Using sqlite
+In case you are having trouble installing PostgreSQL or the `pg` gem due to your system configuration, following this instructions to use Sqlite.
+
+
+Be aware that when using sqlite if you open the project on a text editor it might crash due to the size of the db files created inside the directory. This option is recommended as a last resource.
+
+1. Modify the Gemfile
+ * Change `gem 'pg'` by `gem 'sqlite3'`
+2. Run `$ bundle install`
+2. Modify config/database.yml
+ * Change `adapter: postgresql` by `adapter: sqlite3`
+ * comment out `pool: 5`

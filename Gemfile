@@ -15,7 +15,8 @@ gem 'active_model_serializers', '~> 0.10.6'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-gem 'pg'
+# gem 'pg'
+gem 'sqlite3'
 # gem 'pg_search'
 # gem 'dotenv'
 
