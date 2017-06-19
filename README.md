@@ -50,7 +50,7 @@ The current available version is Version 1. To access endpoints in this namespac
 -----
 
 #### Using sqlite
-In case you are having trouble installing PostgreSQL or the `pg` gem due to your system configuration, following this instructions to use Sqlite.
+In case you are having trouble installing PostgreSQL or the `pg` gem due to your system configuration, following this instructions to use Sqlite can help to run the API.
 
 
 Be aware that when using sqlite if you open the project on a text editor it might crash due to the size of the db files created inside the directory. This option is recommended as a last resource.
