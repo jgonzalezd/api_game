@@ -53,7 +53,7 @@ The current available version is Version 1. To access endpoints in this namespac
 In case you are having trouble installing PostgreSQL or the `pg` gem due to your system configuration, following this instructions to use Sqlite can help to run the API.
 
 
-Be aware that when using sqlite if you open the project on a text editor it might crash due to the size of the db files created inside the directory. This option is recommended as a last resource.
+Be aware that when using sqlite if you open the project on a text editor it might crash due to the size of the db files created inside the directory after seeding the database. This option is recommended as an alternative to using a propert DB.
 
 1. Modify the Gemfile
  * Change `gem 'pg'` by `gem 'sqlite3'`
