@@ -11,8 +11,6 @@ class V1::GameController < ApplicationController
 
   def update
 
-    return head :not_found      if game.nil?
-
     word = ValidWord.find_by(word: params["word"])
     return head :not_acceptable if word.nil?
 
